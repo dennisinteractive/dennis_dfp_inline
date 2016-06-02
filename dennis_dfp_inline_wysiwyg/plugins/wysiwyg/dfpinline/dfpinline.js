@@ -12,7 +12,7 @@
      * Execute the button.
      */
     invoke: function (data, settings, instanceId) {
-      var content = (data.format === 'html') ? this._getPlaceholder(settings) : settings.dfpInlinePattern;
+      var content = (data.format === 'html') ? this._getPlaceholder(settings) : settings.placeholderPattern;
       Drupal.wysiwyg.instances[instanceId].insert(content);
     },
 
@@ -21,7 +21,7 @@
      */
     attach: function (content, settings) {
       // Get html element placeholder.
-      var divPlaceholder = settings.dfpInlinePattern;
+      var divPlaceholder = settings.placeholderPattern;
       // Get image placeholder.
       var imgPlaceholder = this._getPlaceholder(settings);
       // Convert to regex ,find all (param g).
@@ -36,13 +36,13 @@
     detach: function(content, settings) {
 
       // Get inline pattern / placeholder.
-      var dfpInlinePattern = settings.dfpInlinePattern;
+      var placeholderPattern = settings.placeholderPattern;
       // Get wysiwyg content.
       var jo = jQuery('<div>' + content + '</div>');
       // Find all image placeholders in wysiwyg text.
       jo.find('img.'+imagePlaceholderClass).each(function () {
         // Replace all image placeholders with the html placeholder element.
-        jQuery(this).replaceWith(dfpInlinePattern);
+        jQuery(this).replaceWith(placeholderPattern);
       });
       return jo.html();
     },
