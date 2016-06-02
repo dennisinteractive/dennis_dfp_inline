@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 
     meta: {
       dist: {
-        dirname: 'dfpinline',
+        dirname: 'placeholder',
         outfile: 'app'
       },
       distroPath: process.env.DISTRO_PATH
@@ -21,8 +21,8 @@ module.exports = function(grunt) {
       before: ['js/dist'],
       after: [
         'js/dist/**/*',                                                   // Clean everything in js/dist.
-        '!js/dist/<%= meta.dist.dirname %>/**',                           // Except the dfpinline folder.
-        'js/dist/<%= meta.dist.dirname %>/*',                             // Then clean everything inside dfpinline folder.
+        '!js/dist/<%= meta.dist.dirname %>/**',                           // Except the placeholder folder.
+        'js/dist/<%= meta.dist.dirname %>/*',                             // Then clean everything inside placeholder folder.
         '!js/dist/<%= meta.dist.dirname %>/<%= meta.dist.outfile %>.js',  // Except our precious optimised bundle.
         '!js/dist/build.txt'                                              // Keep build.txt for future reference.
       ]
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
         options: {
           baseUrl: 'js/src',
           paths: {
-            dfpinline: '.',
+            placeholder: '.',
             domReady: '<%= meta.distroPath %>/libraries/domreadyjs/domReady',
             has: '<%= meta.distroPath %>/modules/custom/dennis_js/js/has',
             utils: '<%= meta.distroPath %>/modules/custom/dennis_js/js/utils',
