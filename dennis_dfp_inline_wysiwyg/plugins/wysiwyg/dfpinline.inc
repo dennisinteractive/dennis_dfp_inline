@@ -14,7 +14,7 @@ function dennis_placeholder_wysiwyg_dfpinline_plugin() {
     'icon file'  => 'dfpinline.png',
     'icon title' => t('Insert inline ad slot placeholder'),
     'settings'   => array(
-      'dfpInlinePattern' => variable_get('dennis_dfp_inline_placeholder', DENNIS_DFP_INLINE_PLACEHOLDER),
+      'placeholderPattern' => variable_get('dennis_placeholder_placeholder', DENNIS_DFP_INLINE_PLACEHOLDER),
     ),
   );
 
