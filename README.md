@@ -1,2 +1,2 @@
-# dennis_dfp_inline
-Automated inline DFP ads
+# Dennis Placeholder
+Automated inline DFP adverts in body copy
