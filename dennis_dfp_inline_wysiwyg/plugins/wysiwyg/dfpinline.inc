@@ -8,7 +8,7 @@ define("DENNIS_DFP_INLINE_PLACEHOLDER", '<div class="dfpinline-auto-placeholder"
 /**
  * Implements hook_wysiwyg_plugin().
  */
-function dennis_dfp_inline_wysiwyg_dfpinline_plugin() {
+function dennis_placeholder_wysiwyg_dfpinline_plugin() {
   $plugins['dfpinline'] = array(
     'title'      => t('Inline Ads'),
     'icon file'  => 'dfpinline.png',
@@ -17,7 +17,6 @@ function dennis_dfp_inline_wysiwyg_dfpinline_plugin() {
       'dfpInlinePattern' => variable_get('dennis_dfp_inline_placeholder', DENNIS_DFP_INLINE_PLACEHOLDER),
     ),
   );
-
 
   return $plugins;
 }

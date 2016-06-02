@@ -2,5 +2,4 @@ name = Dennis Placeholder WYSIWYG
 description = WYSIWYG support for inline ads
 core = 7.x
 
-dependencies[] = dennis_dfp_inline
 dependencies[] = dennis_wysiwyg

@@ -1,15 +1,15 @@
 <?php
 /**
  * @file
- * dennis_dfp_inline.module
+ * dennis_placeholder.module
  */
 //define("DENNIS_DFP_INLINE_PLACEHOLDER", '<div class="dfpinline-manual-placeholder"></div>');
 /**
  * Implements hook_theme().
  */
-function dennis_dfp_inline_theme() {
+function dennis_placeholder_theme() {
   return array(
-    'dennis_dfp_inline_context_form' => array(
+    'dennis_placeholder_context_form' => array(
       'render element' => 'form',
     ),
   );
@@ -18,12 +18,12 @@ function dennis_dfp_inline_theme() {
 /**
  * Implements hook_context_registry().
  */
-function dennis_dfp_inline_context_registry() {
+function dennis_placeholder_context_registry() {
   return array(
     'reactions' => array(
-      'dennis_dfp_inline' => array(
-        'title' => t('DFP Inline Tag'),
-        'plugin' => 'dennis_dfp_inline',
+      'dennis_placeholder' => array(
+        'title' => t('Placeholder Tag'),
+        'plugin' => 'dennis_placeholder',
       ),
     ),
   );
@@ -32,13 +32,13 @@ function dennis_dfp_inline_context_registry() {
 /**
  * Implements hook_context_plugins().
  */
-function dennis_dfp_inline_context_plugins() {
+function dennis_placeholder_context_plugins() {
   $plugins = array();
-  $plugins['dennis_dfp_inline'] = array(
+  $plugins['dennis_placeholder'] = array(
     'handler' => array(
-      'path' => drupal_get_path('module', 'dennis_dfp_inline') . '/plugins',
-      'file' => 'dennis_dfp_inline_context_reaction_add.inc',
-      'class' => 'dennis_dfp_inline_context_reaction_add',
+      'path' => drupal_get_path('module', 'dennis_placeholder') . '/plugins',
+      'file' => 'dennis_placeholder_context_reaction_add.inc',
+      'class' => 'dennis_placeholder_context_reaction_add',
       'parent' => 'context_reaction',
     ),
   );
@@ -46,11 +46,11 @@ function dennis_dfp_inline_context_plugins() {
   return $plugins;
 }
 
-function dennis_dfp_inline_get_configuration(){
+function dennis_placeholder_get_configuration(){
   $config = array();
 
   // Execute lazyadslot plugin.
-  if ($plugin = context_get_plugin('reaction', 'dennis_dfp_inline')) {
+  if ($plugin = context_get_plugin('reaction', 'dennis_placeholder')) {
     $plugin->execute();
     foreach ($plugin->placeholder_config as $values) {
       $config = $values;
@@ -61,21 +61,21 @@ function dennis_dfp_inline_get_configuration(){
   return $config;
 }
 
-function dennis_dfp_inline_page_build(){
+function dennis_placeholder_page_build(){
   // Get configuration from context
-  $config = dennis_dfp_inline_get_configuration();
+  $config = dennis_placeholder_get_configuration();
   // Pass configuration to js
-  _dennis_dfp_inline_load_js($config);
+  _dennis_placeholder_load_js($config);
 }
 
 /**
  * Load the JS application via require.
  */
-function _dennis_dfp_inline_load_js($placeholders) {
+function _dennis_placeholder_load_js($placeholders) {
 
   $js_devel = variable_get('dennis_js_devel', FALSE);
   $subfolder = ($js_devel) ? 'src' : 'dist';
-  $path = drupal_get_path('module', 'dennis_dfp_inline') . '/js/' . $subfolder;
+  $path = drupal_get_path('module', 'dennis_placeholder') . '/js/' . $subfolder;
 
   $config = array();
   // Add collected JS configuration.
@@ -93,9 +93,9 @@ function _dennis_dfp_inline_load_js($placeholders) {
     // context settings now accessible from Drupal.settings.inlineBodyPlaceholder.placeholders
     drupal_add_js(array('dennisDfpInline' => array('config' => $config)), 'setting');
 
-//  if (module_exists('dennis_dfp_inline_wysiwyg')) {
-//    $inline_placeholder = variable_get('dennis_dfp_inline_placeholder', DENNIS_DFP_INLINE_PLACEHOLDER);
-//    drupal_add_js(array('dennisDfpInline' => array('wysiwyg' => $inline_placeholder)), 'setting');
+//  if (module_exists('dennis_placeholder_wysiwyg')) {
+//    $inline_placeholder = variable_get('dennis_placeholder_placeholder', DENNIS_DFP_INLINE_PLACEHOLDER);
+//    drupal_add_js(array('dennisPlaceholder' => array('wysiwyg' => $inline_placeholder)), 'setting');
 //  }
 
   }
