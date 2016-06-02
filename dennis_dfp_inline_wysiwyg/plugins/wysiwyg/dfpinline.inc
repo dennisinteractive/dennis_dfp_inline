@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Dennis DFP Inline/Wysiwyg API integration.
+ * Dennis Placeholder/Wysiwyg API integration.
  */
 define("DENNIS_DFP_INLINE_PLACEHOLDER", '<div class="dfpinline-auto-placeholder"></div>');
 

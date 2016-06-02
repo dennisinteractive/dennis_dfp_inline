@@ -1,6 +1,6 @@
 /**
  * @file
- * Dennis DFP Inline WYSIWYG plugin
+ * Dennis Placeholder WYSIWYG plugin
  */
 (function() {
   // Image placeholder class.
