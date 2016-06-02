@@ -91,7 +91,7 @@ function _dennis_placeholder_load_js($placeholders) {
     $config['lastAdPositionEnabled'] = $placeholders['inline_place_last_enabled'];
 
     // context settings now accessible from Drupal.settings.inlineBodyPlaceholder.placeholders
-    drupal_add_js(array('dennisDfpInline' => array('config' => $config)), 'setting');
+    drupal_add_js(array('dennisPlaceholder' => array('config' => $config)), 'setting');
 
 //  if (module_exists('dennis_placeholder_wysiwyg')) {
 //    $inline_placeholder = variable_get('dennis_placeholder_placeholder', DENNIS_DFP_INLINE_PLACEHOLDER);

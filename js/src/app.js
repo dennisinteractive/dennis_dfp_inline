@@ -8,19 +8,19 @@
  * @module dfpinline/app
  */
 
-var dennisDfpInline = dennisDfpInline || {};
+var dennisPlaceholder = dennisPlaceholder || {};
 var Renderer;
 
 (function () {
-  Drupal.behaviors.dennisDfpInline = {
+  Drupal.behaviors.dennisPlaceholder = {
     attach: function( context, settings ) {
 
       if ( window.googletag &&
-          Drupal.settings.dennisDfpInline &&
-          Drupal.settings.dennisDfpInline.config &&
-          Drupal.settings.dennisDfpInline.config.selector
+          Drupal.settings.dennisPlaceholder &&
+          Drupal.settings.dennisPlaceholder.config &&
+          Drupal.settings.dennisPlaceholder.config.selector
         ) {
-        var r = new Renderer( settings.dennisDfpInline.config.selector, settings.dennisDfpInline );
+        var r = new Renderer( settings.dennisPlaceholder.config.selector, settings.dennisPlaceholder );
             r.field && r.init();
       }
     }

@@ -4,7 +4,7 @@
   /**
    * Custom summary for vertical tabs.
    */
-  Drupal.behaviors.dennisDfpInlineVerticalTabs = {
+  Drupal.behaviors.dennisPlaceholderVerticalTabs = {
     attach: function (context) {
 
       var checkmark = '&#10003;';

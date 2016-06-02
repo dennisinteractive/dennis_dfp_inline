@@ -20,7 +20,7 @@
  *   an object literal with additional attributes. Currently only `classes` is
  *   implemented.
  *   Example `[ 0 => [ 0 => 'mpu_1', 1 => { classes: 'inline-1'} ] ]`
- *   Values are provided from back-end through `Drupal.settings.dennisDfpInline.tags`
+ *   Values are provided from back-end through `Drupal.settings.dennisPlaceholder.tags`
  *
  * @property {Integer} placeholderTags
  *   Internal counter for manual placeholders.
